@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Три Коти: Online Hockey</title>
+    <title>Три Кота: Хоккей Online</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <div id="auth-box" class="card">
-        <h1>Три Кота Хокей</h1>
-        <input id="u-login" placeholder="Логін">
+    <div id="auth-box" class="main-card">
+        <h1>Три Кота Хоккей</h1>
+        <input id="u-login" placeholder="Логин">
         <input id="u-pass" type="password" placeholder="Пароль">
         <div class="row">
-            <button class="btn blue" onclick="game.auth('login')">ВХІД</button>
-            <button class="btn white" onclick="game.auth('register')">РЕЄСТРАЦІЯ</button>
+            <button class="btn blue" onclick="game.auth('login')">ВХОД</button>
+            <button class="btn white" onclick="game.auth('register')">РЕГИСТРАЦИЯ</button>
         </div>
     </div>
 
-    <div id="lobby" class="card" style="display:none">
-        <h2 id="hello">Привіт!</h2>
+    <div id="lobby" class="main-card" style="display:none">
+        <h2 id="hello">Привет!</h2>
         <div class="elo-badge">🏆 ELO: <span id="elo-val">200</span></div>
         <div class="hero-grid">
-            <button id="h-korzhik" class="h-card orange" onclick="game.setHero('korzhik')">Коржик</button>
-            <button id="h-karamelka" class="h-card pink" onclick="game.setHero('karamelka')">Карамелька</button>
-            <button id="h-kompot" class="h-card green" onclick="game.setHero('kompot')">Компот</button>
-            <button id="h-gona" class="h-card gray" onclick="game.setHero('gona')">Гоня</button>
+            <button onclick="game.setHero('korzhik')" id="h-korzhik" class="h-card orange">Коржик</button>
+            <button onclick="game.setHero('karamelka')" id="h-karamelka" class="h-card pink">Карамелька</button>
+            <button onclick="game.setHero('kompot')" id="h-kompot" class="h-card green">Компот</button>
+            <button onclick="game.setHero('gona')" id="h-gona" class="h-card gray">Гоня</button>
         </div>
-        <button id="search-btn" class="btn orange-btn" onclick="game.startSearch()">ШУКАТИ ОНЛАЙН ГРУ</button>
+        <button class="btn orange-btn" onclick="game.startMatch('bot')">ТРЕНИРОВКА (БОТ)</button>
+        <button class="btn blue-btn" onclick="game.findOnline()">ОНЛАЙН 1 на 1</button>
     </div>
 
     <div id="game-ui" style="display:none">
